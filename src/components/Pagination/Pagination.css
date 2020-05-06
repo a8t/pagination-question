@@ -1,0 +1,33 @@
+.pagination {
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  width: 30%;
+}
+
+.pagination--number {
+  cursor: pointer;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0.5em;
+}
+
+.pagination--number:hover {
+  background: #ccc;
+  color: #333;
+}
+
+.pagination--number__unselected {
+  color: #888;
+}
+
+.pagination--number__unselected {
+  color: #666;
+}
+
+.pagination--ellipsis {
+  user-select: none;
+  color: #666;
+}

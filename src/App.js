@@ -1,7 +1,6 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
-import Pagination from "./components/Pagination";
+import Pagination from "./components";
 
 /**
  * Write a React pagination component.
@@ -35,10 +34,16 @@ import Pagination from "./components/Pagination";
  *  */
 
 function App() {
+  const [page, setPage] = useState(1);
   return (
     <div className="App">
       <header className="App-header">
-        <Pagination />
+        <Pagination
+          itemCount={400}
+          itemsPerPage={10}
+          currentPage={page}
+          selectPage={setPage}
+        />
       </header>
     </div>
   );
