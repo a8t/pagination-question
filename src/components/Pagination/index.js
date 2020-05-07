@@ -97,21 +97,19 @@ const getPaginationNumbersToDisplay = _.memoize(
 
 // Insert ellipses into an array of numbers by checking if there's a gap between items
 const insertEllipses = _.memoize((arrOfNum) => {
-  return arrOfNum
-    .map((number, index, initialArray) => {
-      // don't put an ellipse before 1
-      if (index === 0) {
-        return 1;
-      }
+  return arrOfNum.flatmap((number, index, initialArray) => {
+    // don't put an ellipse before 1
+    if (index === 0) {
+      return 1;
+    }
 
-      // if the current number is bigger than the value at the previous index + 1,
-      // in other words, if there's a gap
-      // insert an array with an ellipsis before the current number
-      // (and flatten the final array later)
-      if (number > initialArray[index - 1] + 1) {
-        return [ELLIPSIS, number];
-      }
-      return number;
-    })
-    .flat(); // turn it from e.g. `[1, ['...', 3], 4] to [1, '...', 3, 4]
+    // if the current number is bigger than the value at the previous index + 1,
+    // in other words, if there's a gap
+    // insert an array with an ellipsis before the current number
+    // (and flatten the final array later)
+    if (number > initialArray[index - 1] + 1) {
+      return [ELLIPSIS, number];
+    }
+    return number;
+  });
 });
